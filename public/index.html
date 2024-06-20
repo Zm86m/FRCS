@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Message</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Send a Message</h1>
+        <form id="messageForm">
+            <input type="text" id="messageInput" placeholder="Enter your message" required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <script>
+        const socket = new WebSocket('ws://localhost:3000');
+
+        socket.onopen = () => {
+            console.log('WebSocket connection established');
+        };
+
+        const messageForm = document.getElementById('messageForm');
+        messageForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const message = document.getElementById('messageInput').value;
+            socket.send(message);
+        });
+    </script>
+</body>
+</html>
