@@ -1,0 +1,17 @@
+{
+  "name": "nextjs-websocket-app",
+  "version": "1.0.0",
+  "description": "A Next.js app with WebSocket communication",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js"
+  },
+  "dependencies": {
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "ws": "^8.0.0"
+  }
+}
